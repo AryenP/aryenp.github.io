@@ -68,11 +68,11 @@ const fmtCount = (n) => (n >= 1e6 ? (+(n / 1e6).toFixed(1)) + ' million' : Math.
   render();
 })();
 
-// Project filter tabs with a sliding highlight
+// Project filter tabs with a sliding underline
 (() => {
   const tabs = document.querySelector('.tabs');
   if (!tabs) return;
-  const slider = tabs.querySelector('.tabs__slider');
+  const slider = tabs.querySelector('.tabs__bar');
   const buttons = [...tabs.querySelectorAll('.tabs__tab')];
   const cards = [...document.querySelectorAll('.card[data-cat]')];
 
@@ -99,18 +99,52 @@ const fmtCount = (n) => (n >= 1e6 ? (+(n / 1e6).toFixed(1)) + ' million' : Math.
   place();
 })();
 
-// Fit the wordmark's viewBox to the drawn letters once the font is in
+// Fit the wordmark to its letters and span the dimension line across the name
 (() => {
   const svg = document.querySelector('.mark__svg');
   if (!svg) return;
+  const name = svg.querySelector('.mark__name');
+  const dim = svg.querySelector('.dim');
+  const set = (sel, attrs) => Object.entries(attrs).forEach(([k, v]) => svg.querySelector(sel).setAttribute(k, v));
   const fit = () => {
-    const b = svg.querySelector('text').getBBox();
+    const b = name.getBBox();
     if (!b.width) return;
-    const pad = 6;
-    svg.setAttribute('viewBox', `${b.x - pad} ${b.y - pad} ${b.width + pad * 2} ${b.height + pad * 2}`);
+    const left = b.x + 4, right = b.x + b.width - 4, mid = (left + right) / 2;
+    const y = b.y + b.height + 34;
+    dim.setAttribute('transform', `translate(0 ${y})`);
+    set('.dim__line--l', { x1: mid, x2: left });
+    set('.dim__line--r', { x1: mid, x2: right });
+    set('.dim__tick--l', { x1: left, x2: left });
+    set('.dim__tick--r', { x1: right, x2: right });
+    set('.dim__label', { x: mid });
+    const lw = svg.querySelector('.dim__label').getComputedTextLength() + 28;
+    set('.dim__gap', { x: mid - lw / 2, width: lw });
+    const lh = svg.querySelector('.dim__label').getBBox().height;
+    set('.dim__gap', { y: -lh / 2 - 4, height: lh + 8 });
+    svg.setAttribute('viewBox', `${b.x - 6} ${b.y - 6} ${b.width + 12} ${y + lh / 2 + 10 - (b.y - 6)}`);
   };
   document.fonts?.ready.then(fit);
+  matchMedia('(max-width: 679px)').addEventListener('change', fit);
   fit();
+})();
+
+// Readouts count up from zero like an instrument settling
+(() => {
+  const els = document.querySelectorAll('[data-count]');
+  if (!els.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const fmt = (el, v) => v.toFixed(+el.dataset.decimals || 0) + (el.dataset.suffix || '');
+  els.forEach((el) => { el.textContent = fmt(el, 0); });
+  const run = (el) => {
+    const to = parseFloat(el.dataset.count);
+    const t0 = performance.now(), dur = 1400;
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      el.textContent = fmt(el, to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  setTimeout(() => els.forEach(run), 1250);
 })();
 
 // Reveal once on entering the viewport, staggered within a group; never leaves content hidden

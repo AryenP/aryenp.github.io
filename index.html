@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aryen Palkar</title>
 <meta name="description" content="Aryen Palkar studies data science at UC San Diego and builds LLM inference and machine learning systems, then measures what they cost and how fast they run.">
-<meta property="og:title" content="Aryen Palkar">
+<meta property="og:title" content="Aryen Palkar, built to measure">
 <meta property="og:description" content="LLM inference, speculative decoding, GPU kernels and grid-aware scheduling, each with the numbers it produced.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aryenp.github.io/">
 <meta property="og:image" content="https://aryenp.github.io/assets/og.jpg">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#0f0f0e">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=10">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -24,44 +24,55 @@
   <a class="nav__name" href="#top">Aryen Palkar</a>
   <nav class="nav__links" aria-label="Sections">
     <a href="#work">Work</a>
+    <a href="#results">Results</a>
     <a href="#cost">Cost calculator</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
-  <div class="nav__actions">
-    <a class="pill pill--dark" href="https://github.com/AryenP">GitHub</a>
-    <a class="pill pill--light" href="mailto:aryen.ronenpalkar@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
-  </div>
+  <a class="btn btn--line nav__cta" href="mailto:aryen.ronenpalkar@gmail.com">Email me</a>
 </header>
 
 <main id="top">
 
 <section class="hero" aria-labelledby="hero-title">
+  <p class="hero__tag mono" data-load>UC San Diego · Data Science · Class of 2028</p>
   <h1 class="mark" id="hero-title">
-    <span class="sr-only">Aryen Palkar, UC San Diego class of 2028</span>
-    <span class="agent agent--hero" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
-    <svg class="mark__svg" viewBox="0 0 1100 130" aria-hidden="true" focusable="false">
-      <text x="550" y="104" text-anchor="middle" xml:space="preserve"><tspan class="l" style="--d:0">A</tspan><tspan class="l" style="--d:1">r</tspan><tspan class="l" style="--d:2">y</tspan><tspan class="l" style="--d:3">e</tspan><tspan class="l" style="--d:4">n</tspan><tspan> </tspan><tspan class="l l--green" style="--d:5">P</tspan><tspan class="l l--green" style="--d:6">a</tspan><tspan class="l l--green" style="--d:7">l</tspan><tspan class="l l--green" style="--d:8">k</tspan><tspan class="l l--green" style="--d:9">a</tspan><tspan class="l l--green" style="--d:10">r</tspan><tspan> </tspan><tspan class="l" style="--d:11">[</tspan><tspan class="l l--purple" style="--d:12">2</tspan><tspan class="l l--purple" style="--d:13">0</tspan><tspan class="l l--purple" style="--d:14">2</tspan><tspan class="l l--purple" style="--d:15">8</tspan><tspan class="l" style="--d:16">]</tspan></text>
+    <span class="sr-only">Aryen Palkar, built to measure</span>
+    <svg class="mark__svg" viewBox="0 0 1100 190" aria-hidden="true" focusable="false">
+      <text class="mark__name" x="0" y="112" xml:space="preserve"><tspan class="l" style="--d:0">A</tspan><tspan class="l" style="--d:1">r</tspan><tspan class="l" style="--d:2">y</tspan><tspan class="l" style="--d:3">e</tspan><tspan class="l" style="--d:4">n</tspan><tspan> </tspan><tspan class="l" style="--d:5">P</tspan><tspan class="l" style="--d:6">a</tspan><tspan class="l" style="--d:7">l</tspan><tspan class="l" style="--d:8">k</tspan><tspan class="l" style="--d:9">a</tspan><tspan class="l" style="--d:10">r</tspan></text>
+      <g class="dim" transform="translate(0 160)">
+        <line class="dim__line dim__line--l" x1="550" x2="0" y1="0" y2="0"/>
+        <line class="dim__line dim__line--r" x1="550" x2="1100" y1="0" y2="0"/>
+        <line class="dim__tick dim__tick--l" x1="0" x2="0" y1="-12" y2="12"/>
+        <line class="dim__tick dim__tick--r" x1="1100" x2="1100" y1="-12" y2="12"/>
+        <rect class="dim__gap" x="450" y="-14" width="200" height="28"/>
+        <text class="dim__label" x="550" y="0" text-anchor="middle" dominant-baseline="central">built to measure</text>
+      </g>
     </svg>
   </h1>
-  <p class="hero__lead" data-load>I study data science at UC San Diego and build LLM inference and machine learning systems, then measure what they cost and how fast they run. Every number on this page comes with a link to where it was measured.</p>
-  <a class="pill pill--light hero__cta" href="#work" data-load>See the work <span class="arrow" aria-hidden="true">↓</span></a>
+  <p class="hero__lead" data-load>I build LLM inference and machine learning systems, then measure what they cost and how fast they run. Every number on this page comes with a link to where it was measured.</p>
+  <div class="hero__actions" data-load>
+    <a class="btn btn--fill" href="#work">See the work <span class="arrow" aria-hidden="true">→</span></a>
+    <a class="btn btn--line" href="https://github.com/AryenP">GitHub</a>
+  </div>
 
-  <dl class="stats" data-load>
-    <div><dt><a href="#w-platform">Time to first token, Qwen3-8B as 4-bit AWQ on one L40S</a></dt><dd>107 ms</dd></div>
-    <div><dt><a href="#w-spec">Prompt lookup over a plain KV cache on an RTX 4090</a></dt><dd>2.69x</dd></div>
-    <div><dt><a href="#w-griddy">Power Griddy cut when ERCOT declared EEA 3, replaying Winter Storm Uri</a></dt><dd>61%</dd></div>
+  <dl class="readouts" data-load>
+    <div><dt><a href="#w-platform">Time to first token, Qwen3-8B as 4-bit AWQ on one L40S</a></dt><dd class="mono" data-count="107" data-decimals="0" data-suffix=" ms">107 ms</dd></div>
+    <div><dt><a href="#w-spec">Prompt lookup over a plain KV cache on an RTX 4090</a></dt><dd class="mono" data-count="2.69" data-decimals="2" data-suffix="x">2.69x</dd></div>
+    <div><dt><a href="#w-griddy">Power Griddy cut when ERCOT declared EEA 3, replaying Winter Storm Uri</a></dt><dd class="mono" data-count="61" data-decimals="0" data-suffix="%">61%</dd></div>
   </dl>
 </section>
 
 <section class="section" id="work" aria-labelledby="work-title">
-  <h2 class="section__title" id="work-title" data-reveal>Selected work</h2>
-  <div class="tabs" role="group" aria-label="Filter projects" data-reveal>
-    <span class="tabs__slider" aria-hidden="true"></span>
-    <button type="button" class="tabs__tab" data-filter="all" aria-pressed="true">All</button>
-    <button type="button" class="tabs__tab" data-filter="inference" aria-pressed="false">Inference</button>
-    <button type="button" class="tabs__tab" data-filter="systems" aria-pressed="false">Systems</button>
-    <button type="button" class="tabs__tab" data-filter="apps" aria-pressed="false">Apps</button>
+  <div class="section__head">
+    <h2 class="section__title" id="work-title" data-reveal>Selected work</h2>
+    <div class="tabs" role="group" aria-label="Filter projects" data-reveal>
+      <button type="button" class="tabs__tab" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="tabs__tab" data-filter="inference" aria-pressed="false">Inference</button>
+      <button type="button" class="tabs__tab" data-filter="systems" aria-pressed="false">Systems</button>
+      <button type="button" class="tabs__tab" data-filter="apps" aria-pressed="false">Apps</button>
+      <span class="tabs__bar" aria-hidden="true"></span>
+    </div>
   </div>
 
   <div class="cards">
@@ -78,14 +89,13 @@
             <tr><th scope="row">Per 1,000</th><td>$0.048</td><td>$0.040</td></tr>
           </tbody>
         </table>
-        <span class="agent agent--card agent--green" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
       </div>
       <div class="card__body">
         <h3 class="card__title" id="w-platform">LLM inference and evaluation platform</h3>
         <p>Qwen3-8B on vLLM behind a FastAPI gateway, with hybrid retrieval over PostgreSQL and pgvector. Serving 4-bit AWQ in place of BF16 cut time to first token from 165 ms to 107 ms across 16 measured runs. Hybrid BM25 plus dense retrieval did not beat dense alone (recall@5 0.700 against 0.693), and that null result stays in the README. A CLI gate exits non-zero when recall@1 drops more than 0.01 below the baseline.</p>
-        <p class="card__stack">Python · vLLM · PostgreSQL · pgvector · FastAPI · Docker</p>
+        <p class="card__stack mono">Python · vLLM · PostgreSQL · pgvector · FastAPI · Docker</p>
       </div>
-      <a class="pill pill--dark card__button" href="https://github.com/AryenP/llm-inference-platform">Code and results <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="card__link" href="https://github.com/AryenP/llm-inference-platform">Code and results <span class="arrow" aria-hidden="true">→</span></a>
     </article>
 
     <article class="card" data-cat="inference" data-reveal aria-labelledby="w-spec">
@@ -99,14 +109,13 @@
             <tr><th scope="row">Prompt lookup, 512</th><td>2.63x</td><td>2.69x</td></tr>
           </tbody>
         </table>
-        <span class="agent agent--card agent--purple" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
       </div>
       <div class="card__body">
         <h3 class="card__title" id="w-spec">spec-decode</h3>
         <p>GPT-2 decoding written from scratch to find out what speculative decoding actually buys: the forward pass, a KV cache with per-row rollback and the decoders, in about 600 lines. Hugging Face supplies only the weights and tokenizer. At 512 tokens, prompt lookup reaches 2.63x on an M2 Pro and 2.69x on an RTX 4090, and in fp32 the output is byte-identical to the large model alone.</p>
-        <p class="card__stack">Python · PyTorch · RunPod</p>
+        <p class="card__stack mono">Python · PyTorch · RunPod</p>
       </div>
-      <a class="pill pill--dark card__button" href="https://github.com/AryenP/spec-decode">Code and results <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="card__link" href="https://github.com/AryenP/spec-decode">Code and results <span class="arrow" aria-hidden="true">→</span></a>
     </article>
 
     <article class="card" data-cat="systems" data-reveal aria-labelledby="w-gpu">
@@ -119,121 +128,168 @@
             <tr><th scope="row">vectorsum_v2</th><td>42.3 µs</td><td>24 / 79</td></tr>
           </tbody>
         </table>
-        <span class="agent agent--card agent--blue" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
       </div>
       <div class="card__body">
         <h3 class="card__title" id="w-gpu">GPU MODE kernels</h3>
         <p>CUDA kernels for GPU MODE's ranked leaderboards, run on their B200s, after six tuning batches. My early versions beat the PyTorch reference 9x and still ranked 34th, because the top 30 on grayscale already sit at the roofline. The README keeps that wrong framing next to what replaced it: measure against the board, not the reference.</p>
-        <p class="card__stack">CUDA · Triton · Python</p>
+        <p class="card__stack mono">CUDA · Triton · Python</p>
       </div>
-      <a class="pill pill--dark card__button" href="https://github.com/AryenP/gpu-mode-kernels">Code and tuning log <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="card__link" href="https://github.com/AryenP/gpu-mode-kernels">Code and tuning log <span class="arrow" aria-hidden="true">→</span></a>
     </article>
 
     <article class="card" data-cat="systems" data-reveal aria-labelledby="w-griddy">
       <div class="card__thumb">
         <img src="assets/img/griddy-grid.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="Griddy's live view: a map of the grid with power plants and data centers, and the machine's measured draw in watts.">
-        <span class="agent agent--card agent--orange" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
       </div>
       <div class="card__body">
         <h3 class="card__title" id="w-griddy">Griddy</h3>
         <p>When the grid runs short, Griddy pauses or slows the AI jobs that can wait, keeps live services running, and asks a job's owner before pushing back a deadline. We built it as a team of four for the Microsoft Challenge at Cal Hacks 13; I ran the demo machine and built the runtime, integration, frontend and agent layer. Replaying Winter Storm Uri from EIA-930 records, the machine dropped from 28.2 W to 10.9 W when ERCOT declared EEA 3.</p>
-        <p class="card__stack">Python · JavaScript · WebSockets</p>
+        <p class="card__stack mono">Python · JavaScript · WebSockets</p>
       </div>
-      <a class="pill pill--dark card__button" href="https://github.com/AryenP/griddy">Code and evidence <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="card__link" href="https://github.com/AryenP/griddy">Code and evidence <span class="arrow" aria-hidden="true">→</span></a>
     </article>
 
     <article class="card" data-cat="apps" data-reveal aria-labelledby="w-runway">
       <div class="card__thumb card__thumb--top">
         <img src="assets/img/runway.jpg" width="1440" height="1982" loading="lazy" decoding="async" alt="Runway's main view: every day up to the last exam, with study blocks in course colors and exams marked.">
-        <span class="agent agent--card agent--green" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
       </div>
       <div class="card__body">
         <h3 class="card__title" id="w-runway">Runway</h3>
         <p>A study planner that reads Canvas, Google, iCloud and Outlook calendar feeds every 15 minutes, finds the exams and deadlines, and draws every day up to the last exam. Events its rules can't read go to Claude, which sees titles, times and places and nothing else. It drafts study blocks you accept, draws the time you actually studied beside the plan, and gives each exam a readiness score.</p>
-        <p class="card__stack">TypeScript · Supabase · PostgreSQL · GitHub Actions · Claude API</p>
+        <p class="card__stack mono">TypeScript · Supabase · PostgreSQL · GitHub Actions · Claude API</p>
       </div>
-      <a class="pill pill--dark card__button" href="https://aryenp.github.io/academic-dashbaord/">Open the live site <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="card__link" href="https://aryenp.github.io/academic-dashbaord/">Open the live site <span class="arrow" aria-hidden="true">→</span></a>
     </article>
 
     <article class="card" data-cat="apps" data-reveal aria-labelledby="w-afterglow">
       <div class="card__thumb">
         <img src="assets/img/afterglow-lock.jpg" width="1400" height="909" loading="lazy" decoding="async" alt="Afterglow on a Mac lock screen: the lyric line lights up word by word with icons beside the words, under the clock and a now-playing card.">
-        <span class="agent agent--card agent--purple" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
       </div>
       <div class="card__body">
         <h3 class="card__title" id="w-afterglow">Afterglow</h3>
         <p>A macOS menu-bar app that lights the rim of the display in colors pulled from the album art, pulsing on every kick drum, and shows lyrics one word at a time, timed to the song, on the desktop or the lock screen. Five lyric styles, one of them under a Metal glass shader. Works with Spotify and Apple Music on Apple silicon.</p>
-        <p class="card__stack">Swift · SwiftUI · AppKit · Metal</p>
+        <p class="card__stack mono">Swift · SwiftUI · AppKit · Metal</p>
       </div>
-      <a class="pill pill--dark card__button" href="https://github.com/AryenP/afterglow">Code <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="card__link" href="https://github.com/AryenP/afterglow">Code <span class="arrow" aria-hidden="true">→</span></a>
     </article>
 
   </div>
 </section>
 
+<section class="section" id="results" aria-labelledby="results-title">
+  <div class="section__head">
+    <div>
+      <h2 class="section__title" id="results-title" data-reveal>Results</h2>
+      <p class="section__lead" data-reveal>Drawn on this page from the raw result files in each repo. Hover or use the arrow keys to read a point; every chart links to its source.</p>
+    </div>
+  </div>
+
+  <div class="charts">
+    <figure class="chart" data-chart="ttft" data-reveal>
+      <figcaption>
+        <h3 class="chart__title">Time to first token by prompt length</h3>
+        <p class="chart__finding">4-bit AWQ is faster at every length: 165 ms to 107 ms at 1,024 tokens.</p>
+      </figcaption>
+      <div class="chart__legend" aria-hidden="true"></div>
+      <div class="chart__plot" tabindex="0" role="img" aria-label="Line chart: median time to first token for BF16 and 4-bit AWQ at prompt lengths of 128, 512, 1,024 and 2,048 tokens, at 4 requests a second."></div>
+      <p class="chart__meta mono">Qwen3-8B on one L40S, p50, 4 requests a second · <a href="https://github.com/AryenP/llm-inference-platform/blob/main/results.json">results.json</a></p>
+    </figure>
+
+    <figure class="chart" data-chart="throughput" data-reveal>
+      <figcaption>
+        <h3 class="chart__title">Sustained throughput by concurrency</h3>
+        <p class="chart__finding">AWQ reaches 7.62 requests a second at 64 concurrent requests, against 6.31 for BF16.</p>
+      </figcaption>
+      <div class="chart__legend" aria-hidden="true"></div>
+      <div class="chart__plot" tabindex="0" role="img" aria-label="Line chart: requests a second for BF16 and 4-bit AWQ at 1, 8, 32 and 64 concurrent requests."></div>
+      <p class="chart__meta mono">1,024 tokens in, 128 out · <a href="https://github.com/AryenP/llm-inference-platform/blob/main/results.json">results.json</a></p>
+    </figure>
+
+    <figure class="chart" data-chart="speedup" data-reveal>
+      <figcaption>
+        <h3 class="chart__title">Speculative decoding speedup by draft length</h3>
+        <p class="chart__finding">Best at γ=4 on the M2 Pro (1.90x) and γ=6 on the RTX 4090 (1.47x); longer drafts get rejected more.</p>
+      </figcaption>
+      <div class="chart__legend" aria-hidden="true"></div>
+      <div class="chart__plot" tabindex="0" role="img" aria-label="Line chart: speedup over a plain KV cache for draft lengths 2, 4, 6 and 8 on an M2 Pro and an RTX 4090."></div>
+      <p class="chart__meta mono">gpt2-xl with gpt2 as draft, 128 tokens, fp32 · <a href="https://github.com/AryenP/spec-decode/tree/main/results">results/</a></p>
+    </figure>
+
+    <figure class="chart chart--wide" data-chart="power" data-reveal>
+      <figcaption>
+        <h3 class="chart__title">Griddy under a power cap, measured</h3>
+        <p class="chart__finding">Capped at 18.13 W, the machine settled to a 13.70 W mean, 47.1% below its 25.90 W baseline, within 8 seconds.</p>
+      </figcaption>
+      <div class="chart__legend" aria-hidden="true"></div>
+      <div class="chart__plot" tabindex="0" role="img" aria-label="Line chart: the machine's measured power in watts over about 455 seconds, with the cap set at 130 seconds, after which power drops below the 18.13 watt cap."></div>
+      <p class="chart__meta mono">powermetrics, CPU + GPU + ANE, run 20261024-140239 · <a href="https://github.com/AryenP/griddy/blob/main/docs/evidence/20261024-140239.md">evidence report</a></p>
+    </figure>
+  </div>
+</section>
+
 <section class="section" id="cost" aria-labelledby="cost-title">
-  <h2 class="section__title" id="cost-title" data-reveal>What would self-hosting cost you?</h2>
-  <p class="section__lead" data-reveal>Type your traffic. The answer uses my measured numbers for Qwen3-8B as 4-bit AWQ on one RunPod L40S.</p>
-  <div class="calc" data-reveal>
-    <label class="sr-only" for="traffic">Your traffic, for example 4 requests a second or 100,000 a day</label>
-    <input class="calc__input" id="traffic" type="text" value="4 requests a second" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done">
-    <div class="calc__examples">
-      <button type="button" class="pill pill--dark pill--sm" data-example="1 request a second">1 request a second</button>
-      <button type="button" class="pill pill--dark pill--sm" data-example="100,000 a day">100,000 a day</button>
-      <button type="button" class="pill pill--dark pill--sm" data-example="20 requests a second">20 requests a second</button>
+  <div class="split">
+    <div class="split__side">
+      <h2 class="section__title" id="cost-title" data-reveal>What would self-hosting cost you?</h2>
+      <p class="section__lead" data-reveal>Type your traffic. The answer uses my measured numbers for Qwen3-8B as 4-bit AWQ on one RunPod L40S.</p>
     </div>
-    <div class="calc__answer" aria-live="polite">
-      <p class="calc__parsed">Read as 4 requests a second, about 345,600 a day.</p>
-      <dl class="calc__rows">
-        <div><dt class="calc__selflabel">Self-hosted on one L40S</dt><dd><span class="calc__self">$0.076</span> per 1,000 queries</dd></div>
-        <div><dt>Cheapest published API</dt><dd>$0.178 per 1,000 queries</dd></div>
-      </dl>
-      <p class="calc__verdict">Self-hosting is 2.4x cheaper. Below 1.70 requests a second the idle GPU costs more than the API.</p>
+    <div class="calc" data-reveal>
+      <label class="calc__label mono" for="traffic">Your traffic</label>
+      <input class="calc__input" id="traffic" type="text" value="4 requests a second" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done">
+      <div class="calc__examples">
+        <button type="button" class="chip" data-example="1 request a second">1 request a second</button>
+        <button type="button" class="chip" data-example="100,000 a day">100,000 a day</button>
+        <button type="button" class="chip" data-example="20 requests a second">20 requests a second</button>
+      </div>
+      <div class="calc__answer" aria-live="polite">
+        <p class="calc__parsed mono">Read as 4 requests a second, about 345,600 a day.</p>
+        <dl class="calc__rows">
+          <div><dt class="calc__selflabel">Self-hosted on one L40S</dt><dd class="mono"><span class="calc__self">$0.076</span> / 1,000 queries</dd></div>
+          <div><dt>Cheapest published API</dt><dd class="mono">$0.178 / 1,000 queries</dd></div>
+        </dl>
+        <p class="calc__verdict">Self-hosting is 2.4x cheaper. Below 1.70 requests a second the idle GPU costs more than the API.</p>
+      </div>
+      <p class="calc__note">$1.09 an hour for the GPU, 1,024 tokens in and 128 out, and one GPU sustains 7.62 requests a second. API price as of 6 Oct 2026. <a href="https://github.com/AryenP/llm-inference-platform#against-a-hosted-api">How it was measured</a></p>
     </div>
-    <p class="calc__note">$1.09 an hour for the GPU, 1,024 tokens in and 128 out, and one GPU sustains 7.62 requests a second. API price as of 6 Oct 2026. <a href="https://github.com/AryenP/llm-inference-platform#against-a-hosted-api">How it was measured</a></p>
   </div>
 </section>
 
 <section class="section" id="about" aria-labelledby="about-title">
-  <h2 class="section__title" id="about-title" data-reveal>About</h2>
-  <p class="section__lead section__lead--wide" data-reveal>I study data science at UC San Diego's Halıcıoğlu Data Science Institute, class of 2028. I build things to find out what they're worth, so I keep every measurement, including the ones that didn't help.</p>
-  <div class="facts">
-    <div class="fact" data-reveal>
-      <h3 class="fact__title">Engineers for Exploration</h3>
-      <p class="fact__meta">Student Researcher · Sept 2026 to now</p>
-      <p>Machine learning over satellite and drone imagery to estimate mangrove coverage in Baja California, on a team run with the Aburto Lab at Scripps Institution of Oceanography.</p>
+  <div class="split">
+    <div class="split__side">
+      <h2 class="section__title" id="about-title" data-reveal>About</h2>
+      <p class="section__lead section__lead--ink" data-reveal>I study data science at UC San Diego's Halıcıoğlu Data Science Institute. I build things to find out what they're worth, so I keep every measurement, including the ones that didn't help.</p>
     </div>
-    <div class="fact" data-reveal>
-      <h3 class="fact__title">Stealth</h3>
-      <p class="fact__meta">Founder and Quantitative Developer · June 2024 to now</p>
-      <p>Python trading algorithms (ARIMA, Bollinger Bands, VWAP, linear regression) on S&amp;P 500 equities, with Polygon.io real-time market feeds and automated reporting.</p>
-    </div>
-    <div class="fact" data-reveal>
-      <h3 class="fact__title">Recognition</h3>
-      <ul class="fact__list">
-        <li>1st Place, De Anza Annual Hackathon, OpenAI-sponsored, 400+ competitors</li>
-        <li>GPU MODE grayscale_v2, 12th of 45; vectorsum_v2, 24th of 79</li>
-        <li>Cal Hacks 13, Microsoft Challenge, with Griddy</li>
-      </ul>
-    </div>
-    <div class="fact" data-reveal>
-      <h3 class="fact__title">Earlier projects</h3>
-      <ul class="fact__list">
-        <li>PhotoRevive AI: CNN photo restoration, field-tested with the Sunnyvale Senior Center</li>
-        <li>PlateWise AI: nutrition estimates from food photos</li>
-      </ul>
-    </div>
+    <dl class="log" data-reveal>
+      <div class="log__row">
+        <dt><span class="log__what">Engineers for Exploration</span><span class="log__when mono">Sept 2026 →</span></dt>
+        <dd><span class="log__role">Student Researcher.</span> Machine learning over satellite and drone imagery to estimate mangrove coverage in Baja California, on a team run with the Aburto Lab at Scripps Institution of Oceanography.</dd>
+      </div>
+      <div class="log__row">
+        <dt><span class="log__what">Stealth</span><span class="log__when mono">June 2024 →</span></dt>
+        <dd><span class="log__role">Founder and Quantitative Developer.</span> Python trading algorithms (ARIMA, Bollinger Bands, VWAP, linear regression) on S&amp;P 500 equities, with Polygon.io real-time market feeds and automated reporting.</dd>
+      </div>
+      <div class="log__row">
+        <dt><span class="log__what">Recognition</span></dt>
+        <dd>1st Place, De Anza Annual Hackathon, OpenAI-sponsored, 400+ competitors. GPU MODE grayscale_v2, 12th of 45, and vectorsum_v2, 24th of 79. Cal Hacks 13, Microsoft Challenge, with Griddy.</dd>
+      </div>
+      <div class="log__row">
+        <dt><span class="log__what">Earlier projects</span></dt>
+        <dd>PhotoRevive AI, CNN photo restoration field-tested with the Sunnyvale Senior Center. PlateWise AI, nutrition estimates from food photos.</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
 <section class="section contact" id="contact" aria-labelledby="contact-title">
-  <img class="contact__photo" src="assets/img/aryen.jpg" width="600" height="1066" loading="lazy" decoding="async" alt="Aryen Palkar" data-reveal>
-  <h2 class="section__title" id="contact-title" data-reveal>Ask me for the numbers</h2>
-  <p class="section__lead" data-reveal>I'm in San Diego. Email is the fastest way to reach me.</p>
-  <div class="contact__actions" data-reveal>
-    <a class="pill pill--light" href="mailto:aryen.ronenpalkar@gmail.com">aryen.ronenpalkar@gmail.com <span class="arrow" aria-hidden="true">↗</span></a>
-    <a class="pill pill--dark" href="https://github.com/AryenP">github.com/AryenP <span class="arrow" aria-hidden="true">↗</span></a>
+  <div class="contact__row" data-reveal>
+    <img class="contact__photo" src="assets/img/aryen.jpg" width="600" height="1066" loading="lazy" decoding="async" alt="Aryen Palkar">
+    <div>
+      <h2 class="section__title" id="contact-title">Ask me for the numbers</h2>
+      <p class="section__lead">I'm in San Diego. Email is the fastest way to reach me.</p>
+    </div>
   </div>
+  <a class="contact__mail" href="mailto:aryen.ronenpalkar@gmail.com" data-reveal>aryen.ronenpalkar<wbr>@gmail.com <span class="arrow" aria-hidden="true">→</span></a>
 </section>
 
 </main>
@@ -241,7 +297,7 @@
 <footer class="foot">
   <div class="foot__cols">
     <div>
-      <p class="foot__head">Work</p>
+      <p class="foot__head mono">Work</p>
       <ul>
         <li><a href="https://github.com/AryenP/llm-inference-platform">Inference platform</a></li>
         <li><a href="https://github.com/AryenP/spec-decode">spec-decode</a></li>
@@ -252,27 +308,21 @@
       </ul>
     </div>
     <div>
-      <p class="foot__head">This page</p>
-      <ul>
-        <li><a href="#work">Selected work</a></li>
-        <li><a href="#cost">Cost calculator</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="foot__head">Contact</p>
+      <p class="foot__head mono">Contact</p>
       <ul>
         <li><a href="mailto:aryen.ronenpalkar@gmail.com">Email</a></li>
         <li><a href="https://github.com/AryenP">GitHub</a></li>
       </ul>
     </div>
   </div>
-  <div class="foot__base">
+  <div class="foot__base mono">
     <span>Aryen Palkar © 2026</span>
     <span>San Diego, California</span>
   </div>
 </footer>
 
-<script src="js/site.js?v=7" defer></script>
+<script type="application/json" id="results-data">{"ttft":{"x":[128,512,1024,2048],"series":[{"name":"BF16","values":[73.5,104.7,164.7,761.4]},{"name":"4-bit AWQ","values":[34.1,61.8,107.2,570.3]}],"source":"https://github.com/AryenP/llm-inference-platform/blob/main/results.json"},"throughput":{"x":[1,8,32,64],"series":[{"name":"BF16","values":[0.35,2.11,4.91,6.31]},{"name":"4-bit AWQ","values":[0.87,4.25,6.97,7.62]}],"source":"https://github.com/AryenP/llm-inference-platform/blob/main/results.json"},"speedup":{"x":[2,4,6,8],"series":[{"name":"M2 Pro","values":[1.56,1.9,1.84,1.73],"tps":[30.5,37.2,36.0,34.0],"kv":19.6},{"name":"RTX 4090","values":[1.15,1.38,1.47,1.36],"tps":[122.9,147.3,156.5,145.4],"kv":106.6}],"source":"https://github.com/AryenP/spec-decode/tree/main/results"},"power":{"points":[[0.0,12.37],[1.0,8.21],[2.0,9.19],[4.4,9.49],[4.4,11.11],[5.0,19.36],[6.1,10.08],[7.1,11.49],[8.1,14.39],[9.1,30.82],[10.1,31.32],[11.1,31.5],[12.1,28.15],[13.1,28.39],[14.1,27.66],[15.1,32.19],[16.1,37.38],[17.1,33.62],[18.2,27.96],[19.2,27.11],[20.2,26.88],[21.2,27.28],[22.2,25.83],[23.2,26.15],[24.2,26.06],[25.2,25.89],[26.2,26.11],[27.3,26.16],[28.3,25.77],[29.3,25.84],[30.3,26.28],[31.3,26.1],[32.3,26.05],[33.3,26.03],[34.3,27.3],[35.3,25.99],[36.4,25.72],[37.4,24.86],[38.4,24.7],[39.4,26.67],[40.4,26.69],[41.4,26.35],[42.4,26.19],[43.4,26.06],[44.4,26.2],[45.4,25.78],[46.4,26.02],[47.5,25.13],[48.5,28.3],[49.5,25.85],[50.5,25.92],[51.5,25.91],[52.5,26.11],[53.5,25.89],[54.5,24.57],[55.5,25.07],[56.6,24.96],[57.6,25.32],[58.6,24.67],[59.6,25.32],[60.6,24.55],[61.6,27.13],[62.6,26.47],[63.6,25.48],[64.6,27.52],[65.7,25.82],[66.7,25.89],[67.7,26.18],[68.7,25.8],[69.7,26.07],[70.7,25.7],[71.7,26.09],[72.7,25.96],[73.7,26.06],[74.7,26.11],[75.8,26.42],[76.8,24.32],[77.8,24.87],[78.8,24.73],[79.8,25.16],[80.8,24.99],[81.8,25.15],[82.8,24.97],[83.9,25.0],[84.9,24.91],[85.9,27.03],[86.9,26.63],[87.9,26.16],[88.9,26.3],[89.9,26.06],[90.9,26.21],[91.9,26.4],[93.0,26.34],[94.0,27.35],[95.0,25.92],[96.0,25.83],[97.0,25.75],[98.0,26.23],[99.0,26.08],[100.0,26.4],[101.0,24.71],[102.1,25.05],[103.1,25.99],[104.1,25.55],[105.1,27.03],[106.1,26.45],[107.1,26.29],[108.1,26.73],[109.1,26.16],[110.1,26.07],[111.1,26.05],[112.2,25.75],[113.2,25.85],[114.2,25.98],[115.2,25.92],[116.2,26.15],[117.2,25.93],[118.2,25.41],[119.2,24.7],[120.2,24.4],[121.2,26.76],[122.3,25.46],[123.3,27.91],[124.3,25.79],[125.3,26.36],[126.3,26.07],[127.3,26.15],[128.3,26.35],[129.3,25.81],[130.3,26.16],[131.3,18.79],[132.4,9.6],[133.4,11.63],[134.4,10.88],[135.4,20.16],[136.4,13.34],[137.4,9.44],[138.4,10.65],[139.4,8.88],[140.4,12.12],[141.5,8.7],[142.5,10.4],[143.5,10.0],[144.5,9.62],[145.5,10.52],[146.5,9.64],[147.5,9.17],[148.5,12.69],[149.5,10.07],[150.5,10.44],[151.5,40.47],[152.6,40.41],[153.6,40.14],[154.6,40.74],[155.6,22.75],[156.6,8.62],[157.6,9.62],[158.6,9.65],[159.6,8.8],[160.6,10.51],[161.6,9.52],[162.7,9.24],[163.7,9.51],[164.7,14.8],[165.7,9.48],[166.7,11.29],[167.7,9.16],[168.7,9.21],[169.7,10.75],[170.7,32.42],[171.8,33.67],[172.8,8.64],[173.8,8.99],[174.8,8.07],[175.8,9.73],[176.8,8.42],[177.8,8.73],[178.8,10.07],[179.8,11.74],[180.8,11.57],[181.9,8.22],[182.9,8.93],[183.9,8.25],[184.9,9.35],[185.9,8.63],[186.9,19.73],[187.9,35.97],[188.9,8.98],[189.9,8.71],[190.9,9.97],[192.0,9.84],[193.0,9.12],[194.0,10.7],[195.0,8.94],[196.0,10.7],[197.0,9.0],[198.0,9.19],[199.0,8.84],[200.0,9.58],[201.0,9.92],[202.1,9.2],[203.1,17.7],[204.1,17.31],[205.1,11.93],[206.1,9.84],[207.1,10.07],[208.1,9.67],[209.1,10.14],[210.1,9.56],[211.1,10.68],[212.1,9.35],[213.2,12.7],[214.2,10.29],[215.2,10.04],[216.2,9.84],[217.2,9.24],[218.2,10.03],[219.2,34.12],[220.2,40.42],[221.2,40.13],[222.2,40.06],[223.2,40.04],[224.2,23.37],[225.3,9.02],[226.3,11.81],[227.3,9.0],[228.3,9.43],[229.3,9.38],[230.3,9.43],[231.3,10.99],[232.3,14.24],[233.3,10.61],[234.3,9.67],[235.3,10.68],[236.4,9.83],[237.4,11.4],[238.4,9.19],[239.4,29.13],[240.4,31.73],[241.4,9.86],[242.4,9.74],[243.4,10.52],[244.4,9.19],[245.4,9.69],[246.4,9.5],[247.5,9.07],[248.5,9.74],[249.5,8.9],[250.5,8.63],[251.5,9.82],[252.5,9.95],[253.5,8.94],[254.5,10.0],[255.5,21.5],[256.6,33.67],[257.6,9.74],[258.6,10.49],[259.6,9.09],[260.6,9.26],[261.6,9.97],[262.6,8.46],[263.6,10.32],[264.6,9.6],[265.6,8.69],[266.7,9.13],[267.7,9.37],[268.7,8.4],[269.7,8.69],[270.7,9.53],[271.7,18.83],[272.7,12.37],[273.7,9.44],[274.7,9.29],[275.7,9.63],[276.8,10.54],[277.8,8.84],[278.8,9.75],[279.8,9.16],[280.8,9.13],[281.8,11.83],[282.8,9.26],[283.8,10.33],[284.8,8.47],[285.8,10.08],[286.8,8.56],[287.9,39.97],[288.9,39.77],[289.9,40.32],[290.9,40.6],[291.9,18.13],[292.9,8.03],[293.9,9.63],[294.9,9.27],[295.9,8.82],[296.9,10.52],[298.0,9.01],[299.0,9.74],[300.0,10.23],[301.0,11.54],[302.0,10.61],[303.0,10.01],[304.0,9.01],[305.0,10.61],[306.0,10.82],[307.0,35.62],[308.1,23.8],[309.1,9.4],[310.1,8.8],[311.1,9.03],[312.1,10.8],[313.1,7.94],[314.1,9.39],[315.1,8.82],[316.1,10.63],[317.1,9.44],[318.2,10.0],[319.2,8.93],[320.2,10.82],[321.2,9.61],[322.2,8.86],[323.2,28.82],[324.2,23.35],[325.2,9.25],[326.2,9.31],[327.3,10.02],[328.3,8.71],[329.3,11.27],[330.3,9.05],[331.3,8.4],[332.3,9.57],[333.3,8.48],[334.3,8.7],[335.3,13.86],[336.4,8.89],[337.4,8.02],[338.4,9.61],[339.4,22.01],[340.4,9.72],[341.4,10.28],[342.4,9.34],[343.4,9.34],[344.4,9.75],[345.5,9.37],[346.5,9.0],[347.5,10.27],[348.5,8.71],[349.5,9.45],[350.5,9.6],[351.5,9.41],[352.5,9.3],[353.5,9.33],[354.5,19.01],[355.5,40.32],[356.6,40.51],[357.6,39.82],[358.6,40.56],[359.6,20.66],[360.6,9.25],[361.6,9.04],[362.6,9.96],[363.6,8.57],[364.6,8.95],[365.7,9.48],[366.7,8.4],[367.7,9.58],[368.7,9.07],[369.7,9.2],[370.7,9.07],[371.7,10.88],[372.7,9.03],[373.7,10.7],[374.7,32.3],[375.8,25.16],[376.8,9.96],[377.8,9.39],[378.8,9.2],[379.8,9.09],[380.8,9.96],[381.8,8.25],[382.8,9.72],[383.8,9.37],[384.9,8.6],[385.9,9.03],[386.9,9.78],[387.9,8.41],[388.9,10.87],[389.9,9.88],[390.9,27.08],[391.9,28.56],[392.9,9.07],[393.9,8.67],[395.0,9.42],[396.0,10.36],[397.0,9.81],[398.0,10.47],[399.0,10.67],[400.0,11.75],[401.0,17.75],[402.0,18.29],[403.0,16.35],[404.0,14.42],[405.1,15.18],[406.1,10.87],[407.1,26.05],[408.1,11.66],[409.1,13.18],[410.1,11.68],[411.1,10.76],[412.1,8.42],[413.1,9.67],[414.2,8.54],[415.2,10.97],[416.2,11.47],[417.2,10.85],[418.2,13.17],[419.2,16.37],[420.2,20.73],[421.2,19.93],[422.2,15.1],[423.2,41.45],[424.2,41.7],[425.3,40.64],[426.3,41.6],[427.3,14.64],[428.3,10.3],[429.3,10.13],[430.3,11.48],[431.3,15.0],[432.3,15.15],[433.3,10.52],[434.3,10.64],[435.4,11.64],[436.4,10.04],[437.4,10.19],[438.4,9.92],[439.4,13.2],[440.4,13.12],[441.4,10.3],[442.4,41.54],[443.4,24.61],[444.5,11.07],[445.5,9.48],[446.5,9.73],[447.5,11.85],[448.5,10.99],[449.5,13.13],[450.5,13.16],[451.5,12.41],[452.5,13.46],[453.5,16.86],[454.6,15.81],[455.6,13.35]],"cap_t":129.6,"cap_w":18.13,"baseline_w":25.9,"source":"https://github.com/AryenP/griddy/blob/main/docs/evidence/20261024-140239.md"}}</script>
+<script src="js/site.js?v=9" defer></script>
+<script src="js/charts.js?v=9" defer></script>
 </body>
 </html>

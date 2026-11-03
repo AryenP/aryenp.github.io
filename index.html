@@ -5,273 +5,274 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aryen Palkar</title>
 <meta name="description" content="Aryen Palkar studies data science at UC San Diego and builds LLM inference and machine learning systems, then measures what they cost and how fast they run.">
-<meta property="og:title" content="Aryen Palkar, built to measure">
+<meta property="og:title" content="Aryen Palkar">
 <meta property="og:description" content="LLM inference, speculative decoding, GPU kernels and grid-aware scheduling, each with the numbers it produced.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aryenp.github.io/">
 <meta property="og:image" content="https://aryenp.github.io/assets/og.jpg">
-<meta name="theme-color" content="#1a2039">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&family=Red+Hat+Text:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=4">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=7">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
-<header class="top">
-  <a class="wordmark" href="#top">Aryen Palkar</a>
-  <nav class="top__nav" aria-label="Sections">
-    <button class="top__menu link" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <ul class="top__links" id="nav-links">
-      <li><a class="link" href="#work">Work</a></li>
-      <li><a class="link" href="#about">About</a></li>
-    </ul>
+<header class="nav">
+  <a class="nav__name" href="#top">Aryen Palkar</a>
+  <nav class="nav__links" aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#cost">Cost calculator</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
-  <a class="button top__action" href="mailto:aryen.ronenpalkar@gmail.com">Email me</a>
+  <div class="nav__actions">
+    <a class="pill pill--dark" href="https://github.com/AryenP">GitHub</a>
+    <a class="pill pill--light" href="mailto:aryen.ronenpalkar@gmail.com">Email me <span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
 </header>
 
 <main id="top">
 
 <section class="hero" aria-labelledby="hero-title">
-  <dl class="hero__figures" data-load style="--d:300ms">
-    <div><dt><a class="link-plain" href="#w-platform">Time to first token, Qwen3-8B as 4-bit AWQ on one L40S</a></dt><dd>107 ms</dd></div>
-    <div><dt><a class="link-plain" href="#w-spec">Prompt lookup over a plain KV cache on an RTX 4090</a></dt><dd>2.69x</dd></div>
-    <div><dt><a class="link-plain" href="#w-griddy">Power Griddy cut when ERCOT declared EEA 3, replaying Winter Storm Uri</a></dt><dd>61%</dd></div>
-  </dl>
-  <h1 class="hero__title lines" id="hero-title">
-    <span class="line"><span data-line style="--i:0">Aryen Palkar,</span></span>
-    <span class="line"><span data-line style="--i:1">built to measure</span></span>
+  <h1 class="mark" id="hero-title">
+    <span class="sr-only">Aryen Palkar, UC San Diego class of 2028</span>
+    <span class="agent agent--hero" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
+    <svg class="mark__svg" viewBox="0 0 1100 130" aria-hidden="true" focusable="false">
+      <text x="550" y="104" text-anchor="middle" xml:space="preserve"><tspan class="l" style="--d:0">A</tspan><tspan class="l" style="--d:1">r</tspan><tspan class="l" style="--d:2">y</tspan><tspan class="l" style="--d:3">e</tspan><tspan class="l" style="--d:4">n</tspan><tspan> </tspan><tspan class="l l--green" style="--d:5">P</tspan><tspan class="l l--green" style="--d:6">a</tspan><tspan class="l l--green" style="--d:7">l</tspan><tspan class="l l--green" style="--d:8">k</tspan><tspan class="l l--green" style="--d:9">a</tspan><tspan class="l l--green" style="--d:10">r</tspan><tspan> </tspan><tspan class="l" style="--d:11">[</tspan><tspan class="l l--purple" style="--d:12">2</tspan><tspan class="l l--purple" style="--d:13">0</tspan><tspan class="l l--purple" style="--d:14">2</tspan><tspan class="l l--purple" style="--d:15">8</tspan><tspan class="l" style="--d:16">]</tspan></text>
+    </svg>
   </h1>
-  <p class="hero__lead" data-load style="--d:420ms">I study data science at UC San Diego and build LLM inference and machine learning systems, then measure what they cost and how fast they run. Every number on this page comes with a link to where it was measured.</p>
+  <p class="hero__lead" data-load>I study data science at UC San Diego and build LLM inference and machine learning systems, then measure what they cost and how fast they run. Every number on this page comes with a link to where it was measured.</p>
+  <a class="pill pill--light hero__cta" href="#work" data-load>See the work <span class="arrow" aria-hidden="true">↓</span></a>
+
+  <dl class="stats" data-load>
+    <div><dt><a href="#w-platform">Time to first token, Qwen3-8B as 4-bit AWQ on one L40S</a></dt><dd>107 ms</dd></div>
+    <div><dt><a href="#w-spec">Prompt lookup over a plain KV cache on an RTX 4090</a></dt><dd>2.69x</dd></div>
+    <div><dt><a href="#w-griddy">Power Griddy cut when ERCOT declared EEA 3, replaying Winter Storm Uri</a></dt><dd>61%</dd></div>
+  </dl>
 </section>
 
-<section class="cost" id="cost" aria-labelledby="cost-title">
-  <h2 class="cost__title" id="cost-title" data-reveal>Is self-hosting cheaper than an API at your traffic?</h2>
-  <div class="cost__ask" data-ui data-reveal style="--i:1">
+<section class="section" id="work" aria-labelledby="work-title">
+  <h2 class="section__title" id="work-title" data-reveal>Selected work</h2>
+  <div class="tabs" role="group" aria-label="Filter projects" data-reveal>
+    <span class="tabs__slider" aria-hidden="true"></span>
+    <button type="button" class="tabs__tab" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="tabs__tab" data-filter="inference" aria-pressed="false">Inference</button>
+    <button type="button" class="tabs__tab" data-filter="systems" aria-pressed="false">Systems</button>
+    <button type="button" class="tabs__tab" data-filter="apps" aria-pressed="false">Apps</button>
+  </div>
+
+  <div class="cards">
+
+    <article class="card" data-cat="inference" data-reveal aria-labelledby="w-platform">
+      <div class="card__thumb card__thumb--panel">
+        <table class="figs">
+          <caption>Qwen3-8B on one L40S</caption>
+          <thead><tr><th scope="col"><span class="sr-only">Measure</span></th><th scope="col">BF16</th><th scope="col">AWQ</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">First token</th><td>165 ms</td><td>107 ms</td></tr>
+            <tr><th scope="row">Inter-token</th><td>28.8 ms</td><td>10.3 ms</td></tr>
+            <tr><th scope="row">Requests/s</th><td>6.31</td><td>7.62</td></tr>
+            <tr><th scope="row">Per 1,000</th><td>$0.048</td><td>$0.040</td></tr>
+          </tbody>
+        </table>
+        <span class="agent agent--card agent--green" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title" id="w-platform">LLM inference and evaluation platform</h3>
+        <p>Qwen3-8B on vLLM behind a FastAPI gateway, with hybrid retrieval over PostgreSQL and pgvector. Serving 4-bit AWQ in place of BF16 cut time to first token from 165 ms to 107 ms across 16 measured runs. Hybrid BM25 plus dense retrieval did not beat dense alone (recall@5 0.700 against 0.693), and that null result stays in the README. A CLI gate exits non-zero when recall@1 drops more than 0.01 below the baseline.</p>
+        <p class="card__stack">Python · vLLM · PostgreSQL · pgvector · FastAPI · Docker</p>
+      </div>
+      <a class="pill pill--dark card__button" href="https://github.com/AryenP/llm-inference-platform">Code and results <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+
+    <article class="card" data-cat="inference" data-reveal aria-labelledby="w-spec">
+      <div class="card__thumb card__thumb--panel">
+        <table class="figs">
+          <caption>Tokens a second, gpt2-xl, fp32</caption>
+          <thead><tr><th scope="col"><span class="sr-only">Decoder</span></th><th scope="col">M2 Pro</th><th scope="col">4090</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">KV cache</th><td>19.6</td><td>106.6</td></tr>
+            <tr><th scope="row">Speculative</th><td>1.90x</td><td>1.47x</td></tr>
+            <tr><th scope="row">Prompt lookup, 512</th><td>2.63x</td><td>2.69x</td></tr>
+          </tbody>
+        </table>
+        <span class="agent agent--card agent--purple" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title" id="w-spec">spec-decode</h3>
+        <p>GPT-2 decoding written from scratch to find out what speculative decoding actually buys: the forward pass, a KV cache with per-row rollback and the decoders, in about 600 lines. Hugging Face supplies only the weights and tokenizer. At 512 tokens, prompt lookup reaches 2.63x on an M2 Pro and 2.69x on an RTX 4090, and in fp32 the output is byte-identical to the large model alone.</p>
+        <p class="card__stack">Python · PyTorch · RunPod</p>
+      </div>
+      <a class="pill pill--dark card__button" href="https://github.com/AryenP/spec-decode">Code and results <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+
+    <article class="card" data-cat="systems" data-reveal aria-labelledby="w-gpu">
+      <div class="card__thumb card__thumb--panel">
+        <table class="figs">
+          <caption>GPU MODE, B200, 17 Oct 2026</caption>
+          <thead><tr><th scope="col">Problem</th><th scope="col">Mine</th><th scope="col">Rank</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">grayscale_v2</th><td>598 µs</td><td>12 / 45</td></tr>
+            <tr><th scope="row">vectorsum_v2</th><td>42.3 µs</td><td>24 / 79</td></tr>
+          </tbody>
+        </table>
+        <span class="agent agent--card agent--blue" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title" id="w-gpu">GPU MODE kernels</h3>
+        <p>CUDA kernels for GPU MODE's ranked leaderboards, run on their B200s, after six tuning batches. My early versions beat the PyTorch reference 9x and still ranked 34th, because the top 30 on grayscale already sit at the roofline. The README keeps that wrong framing next to what replaced it: measure against the board, not the reference.</p>
+        <p class="card__stack">CUDA · Triton · Python</p>
+      </div>
+      <a class="pill pill--dark card__button" href="https://github.com/AryenP/gpu-mode-kernels">Code and tuning log <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+
+    <article class="card" data-cat="systems" data-reveal aria-labelledby="w-griddy">
+      <div class="card__thumb">
+        <img src="assets/img/griddy-grid.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="Griddy's live view: a map of the grid with power plants and data centers, and the machine's measured draw in watts.">
+        <span class="agent agent--card agent--orange" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title" id="w-griddy">Griddy</h3>
+        <p>When the grid runs short, Griddy pauses or slows the AI jobs that can wait, keeps live services running, and asks a job's owner before pushing back a deadline. We built it as a team of four for the Microsoft Challenge at Cal Hacks 13; I ran the demo machine and built the runtime, integration, frontend and agent layer. Replaying Winter Storm Uri from EIA-930 records, the machine dropped from 28.2 W to 10.9 W when ERCOT declared EEA 3.</p>
+        <p class="card__stack">Python · JavaScript · WebSockets</p>
+      </div>
+      <a class="pill pill--dark card__button" href="https://github.com/AryenP/griddy">Code and evidence <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+
+    <article class="card" data-cat="apps" data-reveal aria-labelledby="w-runway">
+      <div class="card__thumb card__thumb--top">
+        <img src="assets/img/runway.jpg" width="1440" height="1982" loading="lazy" decoding="async" alt="Runway's main view: every day up to the last exam, with study blocks in course colors and exams marked.">
+        <span class="agent agent--card agent--green" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title" id="w-runway">Runway</h3>
+        <p>A study planner that reads Canvas, Google, iCloud and Outlook calendar feeds every 15 minutes, finds the exams and deadlines, and draws every day up to the last exam. Events its rules can't read go to Claude, which sees titles, times and places and nothing else. It drafts study blocks you accept, draws the time you actually studied beside the plan, and gives each exam a readiness score.</p>
+        <p class="card__stack">TypeScript · Supabase · PostgreSQL · GitHub Actions · Claude API</p>
+      </div>
+      <a class="pill pill--dark card__button" href="https://aryenp.github.io/academic-dashbaord/">Open the live site <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+
+    <article class="card" data-cat="apps" data-reveal aria-labelledby="w-afterglow">
+      <div class="card__thumb">
+        <img src="assets/img/afterglow-lock.jpg" width="1400" height="909" loading="lazy" decoding="async" alt="Afterglow on a Mac lock screen: the lyric line lights up word by word with icons beside the words, under the clock and a now-playing card.">
+        <span class="agent agent--card agent--purple" aria-hidden="true"><span class="agent__spin"><span class="agent__body"><span class="agent__gaze"><span class="agent__eye"></span><span class="agent__eye"></span></span></span></span></span>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title" id="w-afterglow">Afterglow</h3>
+        <p>A macOS menu-bar app that lights the rim of the display in colors pulled from the album art, pulsing on every kick drum, and shows lyrics one word at a time, timed to the song, on the desktop or the lock screen. Five lyric styles, one of them under a Metal glass shader. Works with Spotify and Apple Music on Apple silicon.</p>
+        <p class="card__stack">Swift · SwiftUI · AppKit · Metal</p>
+      </div>
+      <a class="pill pill--dark card__button" href="https://github.com/AryenP/afterglow">Code <span class="arrow" aria-hidden="true">↗</span></a>
+    </article>
+
+  </div>
+</section>
+
+<section class="section" id="cost" aria-labelledby="cost-title">
+  <h2 class="section__title" id="cost-title" data-reveal>What would self-hosting cost you?</h2>
+  <p class="section__lead" data-reveal>Type your traffic. The answer uses my measured numbers for Qwen3-8B as 4-bit AWQ on one RunPod L40S.</p>
+  <div class="calc" data-reveal>
     <label class="sr-only" for="traffic">Your traffic, for example 4 requests a second or 100,000 a day</label>
-    <input class="cost__input" id="traffic" type="text" value="4 requests a second" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done">
-    <span class="cost__measure" aria-hidden="true"></span>
-    <span class="cost__caret" aria-hidden="true"></span>
-  </div>
-  <div class="cost__answer" data-ui data-reveal style="--i:2" aria-live="polite">
-    <p class="cost__parsed">Read as 4 requests a second, about 345,600 a day.</p>
-    <dl class="cost__rows">
-      <div><dt>Self-hosted on one L40S</dt><dd><span class="cost__self">$0.076</span> per 1,000 queries</dd></div>
-      <div><dt>Cheapest published API</dt><dd>$0.178 per 1,000 queries</dd></div>
-    </dl>
-    <p class="cost__verdict">Self-hosting is 2.4x cheaper. Below 1.70 requests a second the idle GPU costs more than the API.</p>
-  </div>
-  <div class="cost__foot">
-    <div class="cost__examples" data-reveal style="--i:3">
-      <button type="button" data-example="1 request a second">1 request a second</button>
-      <button type="button" data-example="100,000 a day">100,000 a day</button>
-      <button type="button" data-example="20 requests a second">20 requests a second</button>
+    <input class="calc__input" id="traffic" type="text" value="4 requests a second" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done">
+    <div class="calc__examples">
+      <button type="button" class="pill pill--dark pill--sm" data-example="1 request a second">1 request a second</button>
+      <button type="button" class="pill pill--dark pill--sm" data-example="100,000 a day">100,000 a day</button>
+      <button type="button" class="pill pill--dark pill--sm" data-example="20 requests a second">20 requests a second</button>
     </div>
-    <p class="cost__note" data-reveal style="--i:4">Qwen3-8B as a 4-bit AWQ checkpoint on one RunPod L40S at $1.09 an hour, 1,024 tokens in and 128 out; one GPU sustains 7.62 requests a second. API price as of 6 Oct 2026. <a class="link-plain" href="https://github.com/AryenP/llm-inference-platform#against-a-hosted-api">How it was measured</a></p>
-  </div>
-</section>
-
-<div class="work" id="work">
-
-  <section class="block" style="--h:80svh" aria-labelledby="w-platform">
-    <div class="block__visual block__visual--panel" data-ui data-reveal>
-      <table class="figures">
-        <caption>Qwen3-8B on one L40S, 16 measured runs</caption>
-        <thead><tr><th scope="col"><span class="sr-only">Measure</span></th><th scope="col">BF16</th><th scope="col">4-bit AWQ</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Time to first token</th><td>165 ms</td><td>107 ms</td></tr>
-          <tr><th scope="row">Inter-token latency</th><td>28.8 ms</td><td>10.3 ms</td></tr>
-          <tr><th scope="row">Sustained requests a second</th><td>6.31</td><td>7.62</td></tr>
-          <tr><th scope="row">Cost per 1,000 queries</th><td>$0.048</td><td>$0.040</td></tr>
-        </tbody>
-      </table>
-      <p class="figures__note">Prefix caching off, 10 warmup requests discarded per run. The recorder rejects any row missing its hardware, kernel, sampler or cache state.</p>
-    </div>
-    <div class="block__cluster">
-      <div class="block__thumb block__thumb--panel" data-ui data-reveal style="--i:1">
-        <p class="mini__head">Recall@5 over 150 questions</p>
-        <dl class="mini">
-          <div><dt>Dense retrieval</dt><dd>0.700</dd></div>
-          <div><dt>Hybrid BM25 and dense</dt><dd>0.693</dd></div>
-        </dl>
-        <p class="mini__foot">No improvement: one question in 150. The null result stays in the README.</p>
-      </div>
-      <h2 class="block__title" id="w-platform" data-reveal style="--i:2">Inference platform</h2>
-      <p class="block__text" data-reveal style="--i:3">Qwen3-8B on vLLM behind a FastAPI gateway, with hybrid retrieval over PostgreSQL and pgvector and an evaluation suite that scores retrieval and answers. Serving 4-bit AWQ in place of BF16 cut time to first token from 165 ms to 107 ms. A CLI gate exits non-zero when recall@1 drops more than 0.01 below the recorded baseline.</p>
-      <p class="block__meta" data-reveal style="--i:4">Python, vLLM, PostgreSQL, pgvector, FastAPI, Docker. <a class="link-plain" href="https://github.com/AryenP/llm-inference-platform">Code and results.json</a></p>
-    </div>
-  </section>
-
-  <section class="block" style="--h:62svh" aria-labelledby="w-spec">
-    <div class="block__visual block__visual--panel" data-ui data-reveal>
-      <table class="figures">
-        <caption>Tokens a second, gpt2-xl with gpt2 as draft, fp32</caption>
-        <thead><tr><th scope="col"><span class="sr-only">Decoder</span></th><th scope="col">M2 Pro</th><th scope="col">RTX 4090</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">KV cache, 128 tokens</th><td>19.6</td><td>106.6</td></tr>
-          <tr><th scope="row">Speculative, best γ</th><td>37.2 <span class="x">1.90x</span></td><td>156.5 <span class="x">1.47x</span></td></tr>
-          <tr><th scope="row">KV cache, 512 tokens</th><td>18.9</td><td>94.5</td></tr>
-          <tr><th scope="row">Prompt lookup, no draft</th><td>49.8 <span class="x">2.63x</span></td><td>254.5 <span class="x">2.69x</span></td></tr>
-        </tbody>
-      </table>
-      <p class="figures__note">Median of 3 runs after a warmup, 64-token prompt, greedy. Every row has its full configuration under results/.</p>
-    </div>
-    <div class="block__cluster">
-      <div class="block__thumb block__thumb--code" data-ui data-reveal style="--i:1">
-<pre><code>def rollback(self, n) -&gt; None:
-    """n: int for every row, or a (B,)
-    tensor of per-row counts."""
-    if not torch.is_tensor(n):
-        n = torch.full_like(self.lengths, int(n))
-    self.lengths = torch.clamp(
-        self.lengths - n.to(self.lengths.dtype),
-        min=0)</code></pre>
-      </div>
-      <h2 class="block__title" id="w-spec" data-reveal style="--i:2">spec-decode</h2>
-      <p class="block__text" data-reveal style="--i:3">GPT-2 decoding written from scratch to find out what speculative decoding actually buys: the forward pass, a KV cache with per-row rollback and the decoders, in about 600 lines. Hugging Face supplies only the weights and tokenizer. In fp32 the output is byte-identical to the large model decoding alone, and the two bugs the numbers caught are kept in the results.</p>
-      <p class="block__meta" data-reveal style="--i:4">Python, PyTorch, RunPod. <a class="link-plain" href="https://github.com/AryenP/spec-decode">Code and results</a></p>
-    </div>
-  </section>
-
-  <section class="block" style="--h:88svh" aria-labelledby="w-griddy">
-    <figure class="block__visual" data-reveal>
-      <img src="assets/img/griddy-grid.jpg" width="1800" height="1125" loading="eager" decoding="async" alt="Griddy's live view: a map of the grid with power plants and data centers, and the machine's measured draw in watts.">
-    </figure>
-    <div class="block__cluster">
-      <figure class="block__thumb" data-reveal style="--i:1">
-        <img src="assets/img/griddy-uri.jpg" width="800" height="500" loading="lazy" decoding="async" alt="Griddy replaying Winter Storm Uri, with the grid emergency and the machine's power cut shown live.">
-      </figure>
-      <h2 class="block__title" id="w-griddy" data-reveal style="--i:2">Griddy</h2>
-      <p class="block__text" data-reveal style="--i:3">When the grid runs short, Griddy pauses or slows the AI jobs that can wait, keeps live services running, and asks a job's owner before pushing back a deadline. We built it as a team of four for the Microsoft Challenge at Cal Hacks 13; I ran the demo machine and built the runtime, integration, frontend and agent layer. Replaying Winter Storm Uri from EIA-930 records, the machine dropped from 28.2 W to 10.9 W when ERCOT declared EEA 3.</p>
-      <p class="block__meta" data-reveal style="--i:4">Python, JavaScript, WebSockets. <a class="link-plain" href="https://github.com/AryenP/griddy">Code and evidence</a></p>
-    </div>
-  </section>
-
-  <section class="block" style="--h:72svh" aria-labelledby="w-runway">
-    <figure class="block__visual block__visual--top" data-reveal>
-      <img src="assets/img/runway.jpg" width="1440" height="1982" loading="eager" decoding="async" alt="Runway's main view: every day up to the last exam, with study blocks in course colors and exams marked.">
-    </figure>
-    <div class="block__cluster">
-      <figure class="block__thumb block__thumb--top" data-reveal style="--i:1">
-        <img src="assets/img/runway-stats.jpg" width="1000" height="1149" loading="lazy" decoding="async" alt="Runway's stats: hours planned against hours studied, focus by session, and the best hours of the week.">
-      </figure>
-      <h2 class="block__title" id="w-runway" data-reveal style="--i:2">Runway</h2>
-      <p class="block__text" data-reveal style="--i:3">A study planner that reads Canvas, Google, iCloud and Outlook calendar feeds every 15 minutes, finds the exams and deadlines, and draws every day up to the last exam. Events its rules can't read go to Claude, which sees titles, times and places and nothing else. It drafts study blocks you accept, draws the time you actually studied beside the plan, and gives each exam a readiness score.</p>
-      <p class="block__meta" data-reveal style="--i:4">TypeScript, Supabase, PostgreSQL, GitHub Actions, Claude API. <a class="link-plain" href="https://aryenp.github.io/academic-dashbaord/">Live site</a> · <a class="link-plain" href="https://github.com/AryenP/academic-dashbaord">Code</a></p>
-    </div>
-  </section>
-
-  <section class="block" style="--h:84svh" aria-labelledby="w-afterglow">
-    <figure class="block__visual block__visual--drift" data-reveal>
-      <img src="assets/img/afterglow-lock.jpg" width="1400" height="909" loading="eager" decoding="async" alt="Afterglow on a Mac lock screen: the lyric line lights up word by word with icons beside the words, under the clock and a now-playing card.">
-    </figure>
-    <div class="block__cluster">
-      <figure class="block__thumb" data-reveal style="--i:1">
-        <img src="assets/img/afterglow-drift.jpg" width="900" height="584" loading="lazy" decoding="async" alt="Afterglow on the desktop: the screen's edge glowing in the album's colors, with lyrics in the Drift style.">
-      </figure>
-      <h2 class="block__title" id="w-afterglow" data-reveal style="--i:2">Afterglow</h2>
-      <p class="block__text" data-reveal style="--i:3">A macOS menu-bar app that lights the rim of the display in colors pulled from the album art, pulsing on every kick drum, and shows lyrics one word at a time, timed to the song, on the desktop or the lock screen. Five lyric styles, one of them under a Metal glass shader. Works with Spotify and Apple Music on Apple silicon.</p>
-      <p class="block__meta" data-reveal style="--i:4">Swift, SwiftUI, AppKit, Metal. <a class="link-plain" href="https://github.com/AryenP/afterglow">Code</a></p>
-    </div>
-  </section>
-
-  <section class="block" style="--h:64svh" aria-labelledby="w-gpu">
-    <div class="block__visual block__visual--panel" data-ui data-reveal>
-      <table class="figures">
-        <caption>GPU MODE ranked leaderboards, B200, 17 Oct 2026</caption>
-        <thead><tr><th scope="col">Problem</th><th scope="col">Reference</th><th scope="col">Mine</th><th scope="col">Rank</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">grayscale_v2</th><td>5.57 ms</td><td>598 µs</td><td>12 of 45</td></tr>
-          <tr><th scope="row">vectorsum_v2</th><td>292 µs</td><td>42.3 µs</td><td>24 of 79</td></tr>
-        </tbody>
-      </table>
-      <p class="figures__note">Final after six tuning batches. The first submissions, in Triton, ranked 34th and 67th.</p>
-    </div>
-    <div class="block__cluster">
-      <div class="block__thumb block__thumb--code" data-ui data-reveal style="--i:1">
-<pre><code>__global__ void __launch_bounds__(THREADS)
-gray_kernel(const float4* __restrict__ in4,
-            float4* __restrict__ out4, ...)
-{
-    __shared__ float4 s[F4_PER_BLOCK];
-    ...
-    o.x = fmaf(0.2989f, a.x,
-          fmaf(0.5870f, a.y, 0.1140f * a.z));</code></pre>
-      </div>
-      <h2 class="block__title" id="w-gpu" data-reveal style="--i:2">GPU MODE kernels</h2>
-      <p class="block__text" data-reveal style="--i:3">CUDA kernels for GPU MODE's ranked leaderboards, run on their B200s. My early versions beat the PyTorch reference 9x and still ranked 34th, because the top 30 on grayscale already sit at the roofline. The README keeps that wrong framing next to what replaced it: measure against the board, not the reference.</p>
-      <p class="block__meta" data-reveal style="--i:4">CUDA, Triton, Python. <a class="link-plain" href="https://github.com/AryenP/gpu-mode-kernels">Code and tuning log</a></p>
-    </div>
-  </section>
-
-</div>
-
-<section class="about" id="about" aria-labelledby="about-title">
-  <div class="about__row">
-    <div class="about__side">
-      <h2 class="about__title" id="about-title" data-reveal>About</h2>
-      <dl class="about__facts" data-reveal style="--i:1">
-        <div><dt>Studying</dt><dd>Data Science, UC San Diego</dd></div>
-        <div><dt>Graduating</dt><dd>June 2028</dd></div>
-        <div><dt>Based in</dt><dd>San Diego</dd></div>
+    <div class="calc__answer" aria-live="polite">
+      <p class="calc__parsed">Read as 4 requests a second, about 345,600 a day.</p>
+      <dl class="calc__rows">
+        <div><dt class="calc__selflabel">Self-hosted on one L40S</dt><dd><span class="calc__self">$0.076</span> per 1,000 queries</dd></div>
+        <div><dt>Cheapest published API</dt><dd>$0.178 per 1,000 queries</dd></div>
       </dl>
+      <p class="calc__verdict">Self-hosting is 2.4x cheaper. Below 1.70 requests a second the idle GPU costs more than the API.</p>
     </div>
-    <p class="about__para" data-reveal style="--i:2">I study data science at UC San Diego's Halıcıoğlu Data Science Institute. With Engineers for Exploration I work on machine learning over satellite and drone imagery to estimate mangrove coverage in Baja California, on a team run with the Aburto Lab at Scripps Institution of Oceanography. I also founded Stealth, where I write Python trading algorithms on S&amp;P 500 equities. I keep every measurement, including the ones that didn't help.</p>
+    <p class="calc__note">$1.09 an hour for the GPU, 1,024 tokens in and 128 out, and one GPU sustains 7.62 requests a second. API price as of 6 Oct 2026. <a href="https://github.com/AryenP/llm-inference-platform#against-a-hosted-api">How it was measured</a></p>
   </div>
-  <div class="about__row about__row--record">
-    <p class="about__word" data-reveal>Record</p>
-    <div class="about__lists">
-      <ul class="about__list" aria-label="Work" data-reveal style="--i:1">
-        <li><span>Engineers for Exploration, Student Researcher</span><span class="when">2026</span></li>
-        <li><span>Stealth, Founder and Quantitative Developer</span><span class="when">2024</span></li>
-        <li><span>PhotoRevive AI, CNN photo restoration, field-tested with the Sunnyvale Senior Center</span></li>
-        <li><span>PlateWise AI, nutrition estimates from food photos</span></li>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <h2 class="section__title" id="about-title" data-reveal>About</h2>
+  <p class="section__lead section__lead--wide" data-reveal>I study data science at UC San Diego's Halıcıoğlu Data Science Institute, class of 2028. I build things to find out what they're worth, so I keep every measurement, including the ones that didn't help.</p>
+  <div class="facts">
+    <div class="fact" data-reveal>
+      <h3 class="fact__title">Engineers for Exploration</h3>
+      <p class="fact__meta">Student Researcher · Sept 2026 to now</p>
+      <p>Machine learning over satellite and drone imagery to estimate mangrove coverage in Baja California, on a team run with the Aburto Lab at Scripps Institution of Oceanography.</p>
+    </div>
+    <div class="fact" data-reveal>
+      <h3 class="fact__title">Stealth</h3>
+      <p class="fact__meta">Founder and Quantitative Developer · June 2024 to now</p>
+      <p>Python trading algorithms (ARIMA, Bollinger Bands, VWAP, linear regression) on S&amp;P 500 equities, with Polygon.io real-time market feeds and automated reporting.</p>
+    </div>
+    <div class="fact" data-reveal>
+      <h3 class="fact__title">Recognition</h3>
+      <ul class="fact__list">
+        <li>1st Place, De Anza Annual Hackathon, OpenAI-sponsored, 400+ competitors</li>
+        <li>GPU MODE grayscale_v2, 12th of 45; vectorsum_v2, 24th of 79</li>
+        <li>Cal Hacks 13, Microsoft Challenge, with Griddy</li>
       </ul>
-      <ul class="about__list" aria-label="Recognition" data-reveal style="--i:2">
-        <li><span>1st Place, De Anza Annual Hackathon, OpenAI-sponsored, 400+ competitors</span></li>
-        <li><span>GPU MODE grayscale_v2, 12th of 45</span><span class="when">2026</span></li>
-        <li><span>GPU MODE vectorsum_v2, 24th of 79</span><span class="when">2026</span></li>
-        <li><span>Cal Hacks 13, Microsoft Challenge, with Griddy</span><span class="when">2026</span></li>
+    </div>
+    <div class="fact" data-reveal>
+      <h3 class="fact__title">Earlier projects</h3>
+      <ul class="fact__list">
+        <li>PhotoRevive AI: CNN photo restoration, field-tested with the Sunnyvale Senior Center</li>
+        <li>PlateWise AI: nutrition estimates from food photos</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact" aria-labelledby="contact-title">
-  <h2 class="contact__title" id="contact-title" data-reveal>Contact</h2>
-  <ul class="contact__rows">
-    <li class="contact__row contact__row--name" data-reveal><span>Aryen Palkar</span><img class="contact__photo" src="assets/img/aryen.jpg" width="600" height="1066" loading="lazy" decoding="async" alt="Aryen Palkar"></li>
-    <li class="contact__row" data-reveal><a href="mailto:aryen.ronenpalkar@gmail.com">aryen.ronenpalkar<wbr>@gmail.com</a></li>
-    <li class="contact__row" data-reveal><a href="https://github.com/AryenP">github.com/AryenP</a></li>
-    <li class="contact__row" data-reveal><span>San Diego, California</span></li>
-    <li class="contact__row" data-reveal><span>UC San Diego, class of 2028</span></li>
-    <li class="contact__row contact__row--hello" data-reveal><span>Hello</span><a class="contact__go" href="mailto:aryen.ronenpalkar@gmail.com?subject=Hello%20Aryen" aria-label="Email Aryen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></a></li>
-  </ul>
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <img class="contact__photo" src="assets/img/aryen.jpg" width="600" height="1066" loading="lazy" decoding="async" alt="Aryen Palkar" data-reveal>
+  <h2 class="section__title" id="contact-title" data-reveal>Ask me for the numbers</h2>
+  <p class="section__lead" data-reveal>I'm in San Diego. Email is the fastest way to reach me.</p>
+  <div class="contact__actions" data-reveal>
+    <a class="pill pill--light" href="mailto:aryen.ronenpalkar@gmail.com">aryen.ronenpalkar@gmail.com <span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="pill pill--dark" href="https://github.com/AryenP">github.com/AryenP <span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
 </section>
 
 </main>
 
-<footer class="foot" aria-labelledby="foot-title">
-  <div class="foot__top">
-    <div class="foot__invite">
-      <h2 class="foot__title" id="foot-title" data-reveal>Ask me for the numbers.</h2>
-      <a class="button foot__button" href="mailto:aryen.ronenpalkar@gmail.com" data-reveal style="--i:1">Email Aryen</a>
+<footer class="foot">
+  <div class="foot__cols">
+    <div>
+      <p class="foot__head">Work</p>
+      <ul>
+        <li><a href="https://github.com/AryenP/llm-inference-platform">Inference platform</a></li>
+        <li><a href="https://github.com/AryenP/spec-decode">spec-decode</a></li>
+        <li><a href="https://github.com/AryenP/gpu-mode-kernels">GPU MODE kernels</a></li>
+        <li><a href="https://github.com/AryenP/griddy">Griddy</a></li>
+        <li><a href="https://aryenp.github.io/academic-dashbaord/">Runway</a></li>
+        <li><a href="https://github.com/AryenP/afterglow">Afterglow</a></li>
+      </ul>
     </div>
-    <ul class="foot__links" data-reveal style="--i:2">
-      <li><a class="link" href="https://github.com/AryenP">GitHub</a></li>
-      <li><a class="link" href="mailto:aryen.ronenpalkar@gmail.com">Email</a></li>
-      <li><a class="link" href="#top">Back to top</a></li>
-    </ul>
+    <div>
+      <p class="foot__head">This page</p>
+      <ul>
+        <li><a href="#work">Selected work</a></li>
+        <li><a href="#cost">Cost calculator</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot__head">Contact</p>
+      <ul>
+        <li><a href="mailto:aryen.ronenpalkar@gmail.com">Email</a></li>
+        <li><a href="https://github.com/AryenP">GitHub</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="foot__legal">
-    <span>© 2026 Aryen Palkar</span>
-    <span>Set in Red Hat Display and Red Hat Text</span>
+  <div class="foot__base">
+    <span>Aryen Palkar © 2026</span>
+    <span>San Diego, California</span>
   </div>
-  <p class="foot__mark" aria-hidden="true">Aryen</p>
 </footer>
 
-<script src="js/site.js?v=4" defer></script>
+<script src="js/site.js?v=7" defer></script>
 </body>
 </html>

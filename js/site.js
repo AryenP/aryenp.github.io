@@ -20,39 +20,28 @@ function parseTraffic(text) {
   return { rps: n / seconds, perDay: (n / seconds) * 86400 };
 }
 
-const fmtMoney = (v) => '$' + (v < 0.01 ? v.toFixed(4) : v.toFixed(3));
-const fmtRate = (r) => (r >= 100 ? Math.round(r).toLocaleString('en-US') : r < 0.1 ? r.toPrecision(2) : (+r.toFixed(2)).toString());
-const fmtCount = (n) => {
-  if (n >= 1e6) return (+(n / 1e6).toFixed(1)).toString() + ' million';
-  return Math.round(n).toLocaleString('en-US');
-};
-
 function cost(rps) {
   const gpus = Math.ceil(rps / GPU_MAX_RPS);
-  const self = (gpus * GPU_PER_HOUR * 1000) / (rps * 3600);
-  return { gpus, self };
+  return { gpus, self: (gpus * GPU_PER_HOUR * 1000) / (rps * 3600) };
 }
 
+const fmtMoney = (v) => '$' + (v < 0.01 ? v.toFixed(4) : v.toFixed(3));
+const fmtRate = (r) => (r >= 100 ? Math.round(r).toLocaleString('en-US') : r < 0.1 ? r.toPrecision(2) : (+r.toFixed(2)).toString());
+const fmtCount = (n) => (n >= 1e6 ? (+(n / 1e6).toFixed(1)) + ' million' : Math.round(n).toLocaleString('en-US'));
+
+// Cost calculator
 (() => {
   const input = document.getElementById('traffic');
   if (!input) return;
-  const ask = input.parentElement;
-  const measure = ask.querySelector('.cost__measure');
-  const answer = document.querySelector('.cost__answer');
+  const parsedEl = document.querySelector('.calc__parsed');
+  const selfEl = document.querySelector('.calc__self');
+  const selfLabel = document.querySelector('.calc__selflabel');
+  const verdict = document.querySelector('.calc__verdict');
   const examples = document.querySelectorAll('[data-example]');
-
-  function placeCaret() {
-    measure.textContent = input.value;
-    const x = Math.min(measure.getBoundingClientRect().width, input.clientWidth);
-    ask.style.setProperty('--caret-x', x + 'px');
-  }
 
   function render() {
     const parsed = parseTraffic(input.value);
-    const parsedEl = answer.querySelector('.cost__parsed');
-    const selfEl = answer.querySelector('.cost__self');
-    const selfLabel = answer.querySelector('.cost__rows dt');
-    const verdict = answer.querySelector('.cost__verdict');
+    examples.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.example === input.value)));
     if (!parsed) {
       parsedEl.textContent = 'Type a traffic level, like 4 requests a second or 100,000 a day.';
       return;
@@ -61,67 +50,88 @@ function cost(rps) {
     const { gpus, self } = cost(rps);
     parsedEl.textContent = `Read as ${fmtRate(rps)} requests a second, about ${fmtCount(perDay)} a day.`;
     selfLabel.textContent = gpus === 1 ? 'Self-hosted on one L40S' : `Self-hosted on ${gpus} L40S GPUs`;
-    selfEl.textContent = fmtMoney(self);
-    const ratio = self > API_PER_1K ? self / API_PER_1K : API_PER_1K / self;
-    if (Math.abs(ratio - 1) < 0.03) {
-      verdict.textContent = 'About even. 1.70 requests a second is the break-even point.';
-    } else if (self < API_PER_1K) {
-      verdict.textContent = `Self-hosting is ${ratio.toFixed(1)}x cheaper. Below 1.70 requests a second the idle GPU costs more than the API.`;
-    } else {
-      verdict.textContent = `The API is ${ratio.toFixed(1)}x cheaper. The GPU sits idle most of the hour; self-hosting wins above 1.70 requests a second.`;
+    const next = fmtMoney(self);
+    if (selfEl.textContent !== next) {
+      selfEl.textContent = next;
+      selfEl.classList.remove('is-tick');
+      void selfEl.offsetWidth;
+      selfEl.classList.add('is-tick');
     }
-    examples.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.example === input.value)));
+    const ratio = self > API_PER_1K ? self / API_PER_1K : API_PER_1K / self;
+    if (Math.abs(ratio - 1) < 0.03) verdict.textContent = 'About even. 1.70 requests a second is the break-even point.';
+    else if (self < API_PER_1K) verdict.textContent = `Self-hosting is ${ratio.toFixed(1)}x cheaper. Below 1.70 requests a second the idle GPU costs more than the API.`;
+    else verdict.textContent = `The API is ${ratio.toFixed(1)}x cheaper. The GPU sits idle most of the hour; self-hosting wins above 1.70 requests a second.`;
   }
 
-  input.addEventListener('input', () => { render(); placeCaret(); });
-  examples.forEach((b) => b.addEventListener('click', () => {
-    input.value = b.dataset.example;
-    render();
-    placeCaret();
-  }));
-  window.addEventListener('resize', placeCaret);
-  document.fonts?.ready.then(placeCaret);
+  input.addEventListener('input', render);
+  examples.forEach((b) => b.addEventListener('click', () => { input.value = b.dataset.example; render(); }));
   render();
-  placeCaret();
 })();
 
-// Phone menu
+// Project filter tabs with a sliding highlight
 (() => {
-  const btn = document.querySelector('.top__menu');
-  const list = document.getElementById('nav-links');
-  if (!btn || !list) return;
-  btn.addEventListener('click', () => {
-    const open = btn.getAttribute('aria-expanded') !== 'true';
-    btn.setAttribute('aria-expanded', String(open));
-    list.classList.toggle('is-open', open);
-  });
-  list.addEventListener('click', (e) => {
-    if (e.target.closest('a')) { btn.setAttribute('aria-expanded', 'false'); list.classList.remove('is-open'); }
-  });
+  const tabs = document.querySelector('.tabs');
+  if (!tabs) return;
+  const slider = tabs.querySelector('.tabs__slider');
+  const buttons = [...tabs.querySelectorAll('.tabs__tab')];
+  const cards = [...document.querySelectorAll('.card[data-cat]')];
+
+  function moveSlider(btn) {
+    if (!btn.offsetWidth) return;
+    slider.style.width = btn.offsetWidth + 'px';
+    slider.style.transform = `translateX(${btn.offsetLeft}px)`;
+  }
+
+  buttons.forEach((btn) => btn.addEventListener('click', () => {
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    moveSlider(btn);
+    const f = btn.dataset.filter;
+    cards.forEach((c) => {
+      const show = f === 'all' || c.dataset.cat === f;
+      c.hidden = !show;
+      if (show) c.classList.add('is-in');
+    });
+  }));
+
+  const place = () => moveSlider(buttons.find((b) => b.getAttribute('aria-pressed') === 'true'));
+  window.addEventListener('resize', place);
+  document.fonts?.ready.then(place);
+  place();
 })();
 
-// Reveal each part once as it enters; never leaves content hidden.
+// Fit the wordmark's viewBox to the drawn letters once the font is in
 (() => {
-  const targets = document.querySelectorAll('[data-reveal]');
+  const svg = document.querySelector('.mark__svg');
+  if (!svg) return;
+  const fit = () => {
+    const b = svg.querySelector('text').getBBox();
+    if (!b.width) return;
+    const pad = 6;
+    svg.setAttribute('viewBox', `${b.x - pad} ${b.y - pad} ${b.width + pad * 2} ${b.height + pad * 2}`);
+  };
+  document.fonts?.ready.then(fit);
+  fit();
+})();
+
+// Reveal once on entering the viewport, staggered within a group; never leaves content hidden
+(() => {
+  const targets = [...document.querySelectorAll('[data-reveal]')];
   if (!targets.length) return;
-  if (!('IntersectionObserver' in window)) { targets.forEach((el) => el.classList.add('is-in')); return; }
-  // A target fully clipped by its own clip-path never reports as intersecting in Chrome,
-  // so clip reveals are triggered by watching their block instead.
-  const watchers = new Map();
+  const show = (el) => el.classList.add('is-in');
+  if (!('IntersectionObserver' in window)) { targets.forEach(show); return; }
   targets.forEach((el) => {
-    const watched = el.classList.contains('block__visual') ? el.closest('.block') : el;
-    if (!watchers.has(watched)) watchers.set(watched, []);
-    watchers.get(watched).push(el);
+    const siblings = [...el.parentElement.children].filter((s) => s.hasAttribute('data-reveal'));
+    el.style.setProperty('--stagger', (siblings.indexOf(el) % 3) * 80 + 'ms');
   });
   const io = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      watchers.get(entry.target).forEach((el) => el.classList.add('is-in'));
-      io.unobserve(entry.target);
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      show(e.target);
+      io.unobserve(e.target);
     }
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.02 });
-  watchers.forEach((_, watched) => io.observe(watched));
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  targets.forEach((el) => io.observe(el));
   window.addEventListener('load', () => setTimeout(() => {
-    targets.forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('is-in'); });
+    targets.forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) show(el); });
   }, 2500));
 })();
